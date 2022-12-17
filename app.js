@@ -1,20 +1,8 @@
-// express 라이브러리 로딩하기
 const express = require('express');
-
-// HTTP 요청을 다루는 라이브러리 로딩하기
 const request = require('request');
-
-// POST 요청으로 보낸 payload 를 분석하는 라이브러리 로딩하기
-//const bodyParser = require('body-parser');
-
-const port = 3000; // 웹서버 포트 번호
-
-// express() 를 호출하여 웹서버를 준비한다.
+const port = 3000; 
 const app = express();
 
-// POST 요청으로 보낸 payload 데이터를 분석할 객체를 지정하기
-// => Content-Type: application/x=www=form-urlencoded 형식으로 된 payload 처리
-//    예) name=hong&age=20
 app.use(express.urlencoded({extended: true}));
 
   app.get('/proxy2', (req, res) => { 
@@ -27,16 +15,16 @@ app.use(express.urlencoded({extended: true}));
     "&pageNo=1" + 
     "&numOfRows=1000" + 
     "&dataType=JSON" + 
-    "&base_date=" + req.query.base_date + // 조회 날짜 
-    "&base_time=0600" + 
-    "&nx=" + req.query.nx +  // 지역 X 좌표
-    "&ny=" + req.query.ny;  // 지역 Y 좌표
+    "&base_date=" + req.query.base_date + 
+    "&base_time=0100" +
+    "&nx=" + req.query.nx +  
+    "&ny=" + req.query.ny;  
 
       request.get({
         uri: openApiUrl
       }, (error, response, body) => {
       res.send(body);
-    });  
+      });  
   });
 
 // 웹서버 실행하기
