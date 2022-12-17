@@ -1,0 +1,48 @@
+#header {
+  margin: 10px auto;
+  width: 240px;
+}
+
+#main { 
+  width: 1000px;
+  margin: 10px auto;
+  position: relative;
+}
+
+#dae {
+  color: black;
+  font-weight: bold;
+  text-align: center;
+  width: 60px;
+  height: 60px;
+  margin-left: 455px;
+  position: absolute;
+  margin-top: 565px;
+}
+
+#daeicon {
+  position: absolute;
+  margin-left: 460px;
+  margin-top: 525px;
+  width: 50px;
+  height: 50px;
+}
+
+#guii {
+  color: black;
+  font-weight: bold;
+  text-align: center;
+  width: 60px;
+  height: 60px;
+  margin-left: 410px;
+  position: absolute;
+  margin-top: 480px;
+}
+
+#guiiicon {
+  position: absolute;
+  margin-left: 415px;
+  margin-top: 440px;
+  width: 50px;
+  height: 50px;
+}

@@ -1,31 +1,31 @@
 const express = require('express');
 const request = require('request');
-const port = 3000; 
+const port = 3000;
 const app = express();
 
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
 
-  app.get('/proxy2', (req, res) => { 
+app.get('/proxy2', (req, res) => {
 
-    res.set('Access-Control-Allow-Origin', '*'); 
-    res.set('Content-Type','application/json; charset=UTF-8');
+  res.set('Access-Control-Allow-Origin', '*');
+  res.set('Content-Type', 'application/json; charset=UTF-8');
 
-    let openApiUrl = "http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtFcst?" +
-    "serviceKey=WD4E2xNHH94SvdddvndrYB%2BF7Rnzk7xKe%2BYP0ovSAZ4w%2F8jmHuVGOU4i9ZUBgutZ8UXNAzIOPUhcGkl4PFaMSQ%3D%3D" + 
-    "&pageNo=1" + 
-    "&numOfRows=1000" + 
-    "&dataType=JSON" + 
-    "&base_date=" + req.query.base_date + 
+  let openApiUrl = "http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtFcst?" +
+    "serviceKey=WD4E2xNHH94SvdddvndrYB%2BF7Rnzk7xKe%2BYP0ovSAZ4w%2F8jmHuVGOU4i9ZUBgutZ8UXNAzIOPUhcGkl4PFaMSQ%3D%3D" +
+    "&pageNo=1" +
+    "&numOfRows=1000" +
+    "&dataType=JSON" +
+    "&base_date=" + req.query.base_date +
     "&base_time=0100" +
-    "&nx=" + req.query.nx +  
-    "&ny=" + req.query.ny;  
+    "&nx=" + req.query.nx +
+    "&ny=" + req.query.ny;
 
-      request.get({
-        uri: openApiUrl
-      }, (error, response, body) => {
-      res.send(body);
-      });  
+  request.get({
+    uri: openApiUrl
+  }, (error, response, body) => {
+    res.send(body);
   });
+});
 
 // 웹서버 실행하기
 app.listen(
