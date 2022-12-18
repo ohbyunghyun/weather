@@ -2,6 +2,7 @@
   margin: 0px auto;
   width: 240px;
   color: dimgray;
+  animation:fadeIn 1s;
 }
 
 #header:hover {
@@ -13,6 +14,7 @@
   width: 1000px;
   margin: 10px auto;
   position: relative;
+  animation:fadeIn 1s;
 }
 
 #dae {
@@ -71,6 +73,34 @@ aside {
 
 #temp:hover {
   cursor: pointer;
+}
+
+#windblack {
+  position: relative;
+}
+
+#windgray {
+  position: absolute;
+  top: 135px;
+  left: 0px;
+}
+
+#tempblack {
+  position: relative;
+}
+
+#tempgray {
+  position: absolute;
+  top: 1px;
+  left: 0px;
+}
+
+#windgray:hover {
+  display: none;
+}
+
+#tempgray:hover {
+  display: none;
 }
 
 #guiiwind {
@@ -328,4 +358,15 @@ aside {
 #time:hover {
   color: black;
   cursor: pointer;
+}
+
+@keyframes fadeIn{
+  0% {
+  opacity: 0.1;
+  transform: translate3d(0,0,0);
+  }
+  to {
+  opacity: 1;
+  transform: translateZ(0);
+  }
 }

@@ -3,6 +3,12 @@ const request = require('request');
 const port = 3000;
 const app = express();
 
+let today = new Date();
+let hour = today.getHours();
+
+let hours = `${hour-1}00`;
+console.log(hours);
+
 app.use(express.urlencoded({ extended: true }));
 
 app.get('/proxy2', (req, res) => {
@@ -16,7 +22,7 @@ app.get('/proxy2', (req, res) => {
     "&numOfRows=1000" +
     "&dataType=JSON" +
     "&base_date=" + req.query.base_date +
-    "&base_time=0000" +
+    "&base_time=" + hours + 
     "&nx=" + req.query.nx +
     "&ny=" + req.query.ny;
 

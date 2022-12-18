@@ -54,7 +54,9 @@ var time = document.querySelector("#time");
 let year = today.getFullYear();
 let month = today.getMonth() + 1;
 let day = today.getDate();
-let hour = 0100;
+let hour = today.getHours();
+
+let hours = `${hour}00`;
 
 let date = `${year}${month}${day}`;
 let date2 = `${year}-${month}-${day}`;
@@ -62,7 +64,7 @@ let date2 = `${year}-${month}-${day}`;
 let windicon = document.querySelector("#wind");
 let temp = document.querySelector("#temp");
 
-time.innerHTML = `${date2} / 00:00  기준`;
+time.innerHTML = `${date2} / ${hour-1}:00  기준`;
 
 windicon.onclick = function() {
     guiiwind.style.display = 'block';
