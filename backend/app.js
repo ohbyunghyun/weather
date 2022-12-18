@@ -4,9 +4,14 @@ const port = 3000;
 const app = express();
 
 let today = new Date();
-let hour = today.getHours();
+var hour = today.getHours();
 
-let hours = `${hour-1}00`;
+if (hour < 11) {
+  var hours = `0${hour-1}00`;
+} else {
+  var hours = `${hour-1}00`;
+};
+
 console.log(hours);
 
 app.use(express.urlencoded({ extended: true }));

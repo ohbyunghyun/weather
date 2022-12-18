@@ -451,6 +451,8 @@ temp.onclick = function() {
     } else {
        dokdonwindicon.innerHTML = "<img src='image/north.JPG' width='50px' height='50px'>";
     }
+
+    
 }());       
 
 (function jejuu() {
