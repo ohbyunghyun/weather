@@ -169,27 +169,44 @@ temp.onclick = function() {
         guiiicon.innerHTML = "<img src='image/rain.JPG' width='50px' height='50px'>";
     } else {
         guiiicon.innerHTML = "<img src='image/rain.JPG' width='50px' height='50px'>";
-    }
+    };
 
-    if (guiiwinds < 30) {
+    if (guiiwinds < 30) 
+    {
         guiiwindicon.innerHTML = "<img src='image/north.JPG' width='50px' height='50px'>";
-    } else if (30 < guiiwinds < 75) {
+    } 
+    else if (guiiwinds < 75) 
+    {
         guiiwindicon.innerHTML = "<img src='image/northeast.JPG' width='50px' height='50px'>";
-    } else if (75 < guiiwinds < 120) {
+    } 
+    else if (guiiwinds < 120) 
+    {
         guiiwindicon.innerHTML = "<img src='image/east.JPG' width='50px' height='50px'>";
-    } else if (120 < guiiwinds < 165) {
+    } 
+    else if (guiiwinds < 165) 
+    {
         guiiwindicon.innerHTML = "<img src='image/southeast.JPG' width='50px' height='50px'>";
-    } else if (165 < guiiwinds < 210) {
+    } 
+    else if (guiiwinds < 210)
+    {
         guiiwindicon.innerHTML = "<img src='image/south.JPG' width='50px' height='50px'>";
-    } else if (210 < guiiwinds < 255) {
+    } 
+    else if (guiiwinds < 255) 
+    {
         guiiwindicon.innerHTML = "<img src='image/southwest.JPG' width='50px' height='50px'>";
-    } else if (255 < guiiwinds < 300) {
+    } 
+    else if (guiiwinds < 300) 
+    {
         guiiwindicon.innerHTML = "<img src='image/west.JPG' width='50px' height='50px'>";
-    } else if (300 < guiiwinds < 345) {
+    } 
+    else if (guiiwinds < 345) 
+    {
         guiiwindicon.innerHTML = "<img src='image/northwest.JPG' width='50px' height='50px'>";
-    } else {
+    } 
+    else 
+    {
         guiiwindicon.innerHTML = "<img src='image/north.JPG' width='50px' height='50px'>";
-    }
+    };
 }());       
 
 (function daejeonn() {
@@ -226,19 +243,19 @@ temp.onclick = function() {
 
     if (daejeonwinds < 30) {
         daejeonwindicon.innerHTML = "<img src='image/north.JPG' width='50px' height='50px'>";
-    } else if (30 < daejeonwinds < 75) {
+    } else if (daejeonwinds < 75) {
         daejeonwindicon.innerHTML = "<img src='image/northeast.JPG' width='50px' height='50px'>";
-    } else if (75 < daejeonwinds < 120) {
+    } else if (daejeonwinds < 120) {
         daejeonwindicon.innerHTML = "<img src='image/east.JPG' width='50px' height='50px'>";
-    } else if (120 < daejeonwinds < 165) {
+    } else if (daejeonwinds < 165) {
         daejeonwindicon.innerHTML = "<img src='image/southeast.JPG' width='50px' height='50px'>";
-    } else if (165 < daejeonwinds < 210) {
+    } else if (daejeonwinds < 210) {
         daejeonwindicon.innerHTML = "<img src='image/south.JPG' width='50px' height='50px'>";
-    } else if (210 < daejeonwinds < 255) {
+    } else if (daejeonwinds < 255) {
         daejeonwindicon.innerHTML = "<img src='image/southwest.JPG' width='50px' height='50px'>";
-    } else if (255 < daejeonwinds < 300) {
+    } else if (daejeonwinds < 300) {
         daejeonwindicon.innerHTML = "<img src='image/west.JPG' width='50px' height='50px'>";
-    } else if (300 < daejeonwinds < 345) {
+    } else if (daejeonwinds < 345) {
         daejeonwindicon.innerHTML = "<img src='image/northwest.JPG' width='50px' height='50px'>";
     } else {
         daejeonwindicon.innerHTML = "<img src='image/north.JPG' width='50px' height='50px'>";
@@ -278,19 +295,19 @@ temp.onclick = function() {
 
     if (busanwinds < 30) {
         busanwindicon.innerHTML = "<img src='image/north.JPG' width='50px' height='50px'>";
-    } else if (30 < busanwinds < 75) {
+    } else if (busanwinds < 75) {
         busanwindicon.innerHTML = "<img src='image/northeast.JPG' width='50px' height='50px'>";
-    } else if (75 < busanwinds < 120) {
+    } else if (busanwinds < 120) {
         busanwindicon.innerHTML = "<img src='image/east.JPG' width='50px' height='50px'>";
-    } else if (120 < busanwinds < 165) {
+    } else if (busanwinds < 165) {
         busanwindicon.innerHTML = "<img src='image/southeast.JPG' width='50px' height='50px'>";
-    } else if (165 < busanwinds < 210) {
+    } else if (busanwinds < 210) {
         busanwindicon.innerHTML = "<img src='image/south.JPG' width='50px' height='50px'>";
-    } else if (210 < busanwinds < 255) {
+    } else if (busanwinds < 255) {
         busanwindicon.innerHTML = "<img src='image/southwest.JPG' width='50px' height='50px'>";
-    } else if (255 < busanwinds < 300) {
+    } else if (busanwinds < 300) {
         busanwindicon.innerHTML = "<img src='image/west.JPG' width='50px' height='50px'>";
-    } else if (300 < busanwinds < 345) {
+    } else if (busanwinds < 345) {
         busanwindicon.innerHTML = "<img src='image/northwest.JPG' width='50px' height='50px'>";
     } else {
         busanwindicon.innerHTML = "<img src='image/north.JPG' width='50px' height='50px'>";
@@ -330,19 +347,19 @@ temp.onclick = function() {
 
     if (gwangjuwinds < 30) {
         gwangjuwindicon.innerHTML = "<img src='image/north.JPG' width='50px' height='50px'>";
-    } else if (30 < gwangjuwinds < 75) {
+    } else if (gwangjuwinds < 75) {
         gwangjuwindicon.innerHTML = "<img src='image/northeast.JPG' width='50px' height='50px'>";
-    } else if (75 < gwangjuwinds < 120) {
+    } else if (gwangjuwinds < 120) {
         gwangjuwindicon.innerHTML = "<img src='image/east.JPG' width='50px' height='50px'>";
-    } else if (120 < gwangjuwinds < 165) {
+    } else if (gwangjuwinds < 165) {
         gwangjuwindicon.innerHTML = "<img src='image/southeast.JPG' width='50px' height='50px'>";
-    } else if (165 < gwangjuwinds < 210) {
+    } else if (gwangjuwinds < 210) {
         gwangjuwindicon.innerHTML = "<img src='image/south.JPG' width='50px' height='50px'>";
-    } else if (210 < gwangjuwinds < 255) {
+    } else if (gwangjuwinds < 255) {
         gwangjuwindicon.innerHTML = "<img src='image/southwest.JPG' width='50px' height='50px'>";
-    } else if (255 < gwangjuwinds < 300) {
+    } else if (gwangjuwinds < 300) {
         gwangjuwindicon.innerHTML = "<img src='image/west.JPG' width='50px' height='50px'>";
-    } else if (300 < gwangjuwinds < 345) {
+    } else if (gwangjuwinds < 345) {
         gwangjuwindicon.innerHTML = "<img src='image/northwest.JPG' width='50px' height='50px'>";
     } else {
        gwangjunwindicon.innerHTML = "<img src='image/north.JPG' width='50px' height='50px'>";
@@ -382,19 +399,19 @@ temp.onclick = function() {
 
     if (gangwonwinds < 30) {
         gangwonwindicon.innerHTML = "<img src='image/north.JPG' width='50px' height='50px'>";
-    } else if (30 < gangwonwinds < 75) {
+    } else if (gangwonwinds < 75) {
         gangwonwindicon.innerHTML = "<img src='image/northeast.JPG' width='50px' height='50px'>";
-    } else if (75 < gangwonwinds < 120) {
+    } else if (gangwonwinds < 120) {
         gangwonwindicon.innerHTML = "<img src='image/east.JPG' width='50px' height='50px'>";
-    } else if (120 < gangwonwinds < 165) {
+    } else if (gangwonwinds < 165) {
         gangwonwindicon.innerHTML = "<img src='image/southeast.JPG' width='50px' height='50px'>";
-    } else if (165 < gangwonwinds < 210) {
+    } else if (gangwonwinds < 210) {
         gangwonwindicon.innerHTML = "<img src='image/south.JPG' width='50px' height='50px'>";
-    } else if (210 < gangwonwinds < 255) {
+    } else if (gangwonwinds < 255) {
         gangwonwindicon.innerHTML = "<img src='image/southwest.JPG' width='50px' height='50px'>";
-    } else if (255 < gangwonwinds < 300) {
+    } else if (gangwonwinds < 300) {
         gangwonwindicon.innerHTML = "<img src='image/west.JPG' width='50px' height='50px'>";
-    } else if (300 < gangwonwinds < 345) {
+    } else if (gangwonwinds < 345) {
         gangwonwindicon.innerHTML = "<img src='image/northwest.JPG' width='50px' height='50px'>";
     } else {
        gangwonnwindicon.innerHTML = "<img src='image/north.JPG' width='50px' height='50px'>";
@@ -434,19 +451,19 @@ temp.onclick = function() {
 
     if (dokdowinds < 30) {
         dokdowindicon.innerHTML = "<img src='image/north.JPG' width='50px' height='50px'>";
-    } else if (30 < dokdowinds < 75) {
+    } else if (dokdowinds < 75) {
         dokdowindicon.innerHTML = "<img src='image/northeast.JPG' width='50px' height='50px'>";
-    } else if (75 < dokdowinds < 120) {
+    } else if (dokdowinds < 120) {
         dokdowindicon.innerHTML = "<img src='image/east.JPG' width='50px' height='50px'>";
-    } else if (120 < dokdowinds < 165) {
+    } else if (dokdowinds < 165) {
         dokdowindicon.innerHTML = "<img src='image/southeast.JPG' width='50px' height='50px'>";
-    } else if (165 < dokdowinds < 210) {
+    } else if (dokdowinds < 210) {
         dokdowindicon.innerHTML = "<img src='image/south.JPG' width='50px' height='50px'>";
-    } else if (210 < dokdowinds < 255) {
+    } else if (dokdowinds < 255) {
         dokdowindicon.innerHTML = "<img src='image/southwest.JPG' width='50px' height='50px'>";
-    } else if (255 < dokdowinds < 300) {
+    } else if (dokdowinds < 300) {
         dokdowindicon.innerHTML = "<img src='image/west.JPG' width='50px' height='50px'>";
-    } else if (300 < dokdowinds < 345) {
+    } else if (dokdowinds < 345) {
         dokdowindicon.innerHTML = "<img src='image/northwest.JPG' width='50px' height='50px'>";
     } else {
        dokdonwindicon.innerHTML = "<img src='image/north.JPG' width='50px' height='50px'>";
@@ -488,19 +505,19 @@ temp.onclick = function() {
 
     if (jejuwinds < 30) {
         jejuwindicon.innerHTML = "<img src='image/north.JPG' width='50px' height='50px'>";
-    } else if (30 < jejuwinds < 75) {
+    } else if (jejuwinds < 75) {
         jejuwindicon.innerHTML = "<img src='image/northeast.JPG' width='50px' height='50px'>";
-    } else if (75 < jejuwinds < 120) {
+    } else if (jejuwinds < 120) {
         jejuwindicon.innerHTML = "<img src='image/east.JPG' width='50px' height='50px'>";
-    } else if (120 < jejuwinds < 165) {
+    } else if (jejuwinds < 165) {
         jejuwindicon.innerHTML = "<img src='image/southeast.JPG' width='50px' height='50px'>";
-    } else if (165 < jejuwinds < 210) {
+    } else if (jejuwinds < 210) {
         jejuwindicon.innerHTML = "<img src='image/south.JPG' width='50px' height='50px'>";
-    } else if (210 < jejuwinds < 255) {
+    } else if (jejuwinds < 255) {
         jejuwindicon.innerHTML = "<img src='image/southwest.JPG' width='50px' height='50px'>";
-    } else if (255 < jejuwinds < 300) {
+    } else if (jejuwinds < 300) {
         jejuwindicon.innerHTML = "<img src='image/west.JPG' width='50px' height='50px'>";
-    } else if (300 < jejuwinds < 345) {
+    } else if (jejuwinds < 345) {
         jejuwindicon.innerHTML = "<img src='image/northwest.JPG' width='50px' height='50px'>";
     } else {
        jejunwindicon.innerHTML = "<img src='image/north.JPG' width='50px' height='50px'>";
