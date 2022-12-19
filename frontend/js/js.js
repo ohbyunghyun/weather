@@ -1,18 +1,3 @@
-var guuix = 62,
-    guuiy = 126,
-    daejeonx = 68,
-    daejeony = 101,
-    busanx = 100,
-    busany = 76,
-    gwangjux = 59,
-    gwangjuy = 74,
-    gangwonx = 87,
-    gangwony = 141,
-    dokdox = 144,
-    dokdoy = 123,
-    jejux = 53,
-    jejuy = 38;
-
 var dae = document.querySelector("#dae");
 var daeicon = document.querySelector("#daeicon");
 var daejeonwind = document.querySelector("#daejeonwind");
@@ -43,10 +28,8 @@ var dokdoicon = document.querySelector("#dokdoicon");
 var dokdowind = document.querySelector("#dokdowind");
 var dokdowindicon = document.querySelector("#dokdowindicon");
 
-var jeju = document.querySelector("#jeju");
-var jejuicon = document.querySelector("#jejuicon");
-var jejuwind = document.querySelector("#jejuwind");
-var jejuwindicon = document.querySelector("#jejuwindicon");
+let windicon = document.querySelector("#wind");
+let temp = document.querySelector("#temp");
 
 let today = new Date();
 var time = document.querySelector("#time");
@@ -55,14 +38,9 @@ let year = today.getFullYear();
 let month = today.getMonth() + 1;
 let day = today.getDate();
 let hour = today.getHours();
-
 let hours = `${hour}00`;
-
 let date = `${year}${month}${day}`;
 let date2 = `${year}-${month}-${day}`;
-
-let windicon = document.querySelector("#wind");
-let temp = document.querySelector("#temp");
 
 time.innerHTML = `${date2} / ${hour-1}:00  기준`;
 
@@ -140,386 +118,62 @@ temp.onclick = function() {
     jejuicon.style.display = 'block';
 };
 
-(function guiii() {
+function weather(x, y, area, areawind, areaicon, areawindicon) {
     var xhr = new XMLHttpRequest();
     xhr.open("GET",
         "http://localhost:3000/proxy2?base_date=" + date +
-        "&nx=" + guuix + "&ny=" + guuiy, false);
+        "&nx=" + x + "&ny=" + y, false);
     xhr.send();
     var arr = JSON.parse(xhr.responseText);
 
-    let guiisky = arr.response.body.items.item[18].fcstValue;
-    let guiitmp = arr.response.body.items.item[24].fcstValue;
-    let guiirain = arr.response.body.items.item[6].fcstValue;
-    let guiiwinds = arr.response.body.items.item[48].fcstValue;
-    let guiiwindspeed = arr.response.body.items.item[54].fcstValue;
+    let sky = arr.response.body.items.item[18].fcstValue;
+    let tmp = arr.response.body.items.item[24].fcstValue;
+    let rain = arr.response.body.items.item[6].fcstValue;
+    let winds = arr.response.body.items.item[48].fcstValue;
+    let windspeed = arr.response.body.items.item[54].fcstValue;
 
-    guii.innerHTML = guiitmp + "℃";
-    guiiwind.innerHTML = guiiwindspeed + "㎳";
+    area.innerHTML = tmp + "℃";
+    areawind.innerHTML = windspeed + "㎳";
 
-    if (guiirain == 0) {
-        if (guiisky == 3) {
-            guiiicon.innerHTML = "<img src='image/semicloud.JPG' width='50px' height='50px'>";
-        } else if (guiisky == 1) {
-            guiiicon.innerHTML = "<img src='image/sun.JPG' width='50px' height='50px'>";
-        } else if (guiisky == 4) {
-            guiiicon.innerHTML = "<img src='image/cloud.JPG' width='50px' height='50px'>";
+    if (rain == 0) {
+        if (sky == 3) {
+            areaicon.innerHTML = "<img src='image/semicloud.JPG' width='50px' height='50px'>";
+        } else if (sky == 1) {
+            areaicon.innerHTML = "<img src='image/sun.JPG' width='50px' height='50px'>";
+        } else if (sky == 4) {
+            areaicon.innerHTML = "<img src='image/cloud.JPG' width='50px' height='50px'>";
         }
-    } else if (guiirain == 1 || guiirain == 2 || guiirain == 5 || guiirain == 6) {
-        guiiicon.innerHTML = "<img src='image/rain.JPG' width='50px' height='50px'>";
+    } else if (rain == 1 || rain == 2 || rain == 5 || rain == 6) {
+        areaicon.innerHTML = "<img src='image/rain.JPG' width='50px' height='50px'>";
     } else {
-        guiiicon.innerHTML = "<img src='image/rain.JPG' width='50px' height='50px'>";
+        areaicon.innerHTML = "<img src='image/rain.JPG' width='50px' height='50px'>";
     };
 
-    if (guiiwinds < 30) 
-    {
-        guiiwindicon.innerHTML = "<img src='image/north.JPG' width='50px' height='50px'>";
-    } 
-    else if (guiiwinds < 75) 
-    {
-        guiiwindicon.innerHTML = "<img src='image/northeast.JPG' width='50px' height='50px'>";
-    } 
-    else if (guiiwinds < 120) 
-    {
-        guiiwindicon.innerHTML = "<img src='image/east.JPG' width='50px' height='50px'>";
-    } 
-    else if (guiiwinds < 165) 
-    {
-        guiiwindicon.innerHTML = "<img src='image/southeast.JPG' width='50px' height='50px'>";
-    } 
-    else if (guiiwinds < 210)
-    {
-        guiiwindicon.innerHTML = "<img src='image/south.JPG' width='50px' height='50px'>";
-    } 
-    else if (guiiwinds < 255) 
-    {
-        guiiwindicon.innerHTML = "<img src='image/southwest.JPG' width='50px' height='50px'>";
-    } 
-    else if (guiiwinds < 300) 
-    {
-        guiiwindicon.innerHTML = "<img src='image/west.JPG' width='50px' height='50px'>";
-    } 
-    else if (guiiwinds < 345) 
-    {
-        guiiwindicon.innerHTML = "<img src='image/northwest.JPG' width='50px' height='50px'>";
-    } 
-    else 
-    {
-        guiiwindicon.innerHTML = "<img src='image/north.JPG' width='50px' height='50px'>";
+    if (winds < 30) {
+        areawindicon.innerHTML = "<img src='image/north.JPG' width='50px' height='50px'>";
+    } else if (winds < 75) {
+        areawindicon.innerHTML = "<img src='image/northeast.JPG' width='50px' height='50px'>";
+    } else if (winds < 120) {
+        areawindicon.innerHTML = "<img src='image/east.JPG' width='50px' height='50px'>";
+    } else if (winds < 165) {
+        areawindicon.innerHTML = "<img src='image/southeast.JPG' width='50px' height='50px'>";
+    } else if (winds < 210) {
+        areawindicon.innerHTML = "<img src='image/south.JPG' width='50px' height='50px'>";
+    } else if (winds < 255) {
+        areawindicon.innerHTML = "<img src='image/southwest.JPG' width='50px' height='50px'>";
+    } else if (winds < 300) {
+        areawindicon.innerHTML = "<img src='image/west.JPG' width='50px' height='50px'>";
+    } else if (winds < 345) {
+        areawindicon.innerHTML = "<img src='image/northwest.JPG' width='50px' height='50px'>";
+    } else {
+       areawindicon.innerHTML = "<img src='image/north.JPG' width='50px' height='50px'>";
     };
-}());       
+};       
 
-(function daejeonn() {
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET",
-        "http://localhost:3000/proxy2?base_date=" + date +
-        "&nx=" + daejeonx + "&ny=" + daejeony, false);
-    xhr.send();
-    var arr = JSON.parse(xhr.responseText);
-
-    let daejeonsky = arr.response.body.items.item[18].fcstValue;
-    let daejeontmp = arr.response.body.items.item[24].fcstValue;
-    let daejeonrain = arr.response.body.items.item[6].fcstValue;
-    let daejeonwinds = arr.response.body.items.item[48].fcstValue;
-    let daejeonwindspeed = arr.response.body.items.item[54].fcstValue;
-
-    daejeonwind.innerHTML = daejeonwindspeed + "㎳";
-    dae.innerHTML = daejeontmp + "℃";
-
-
-    if (daejeonrain == 0) {
-        if (daejeonsky == 3) {
-            daeicon.innerHTML = "<img src='image/semicloud.JPG' width='50px' height='50px'>";
-        } else if (daejeonsky == 1) {
-            daeicon.innerHTML = "<img src='image/sun.JPG' width='50px' height='50px'>";
-        } else if (daejeonsky == 4) {
-            daeicon.innerHTML = "<img src='image/cloud.JPG' width='50px' height='50px'>";
-        }
-    } else if (daejeonrain == 1 || daejeonrain == 2 || daejeonrain == 5 || daejeonrain == 6) {
-        daeicon.innerHTML = "<img src='image/rain.JPG' width='50px' height='50px'>";
-    } else {
-        daeicon.innerHTML = "<img src='image/rain.JPG' width='50px' height='50px'>";
-    }
-
-    if (daejeonwinds < 30) {
-        daejeonwindicon.innerHTML = "<img src='image/north.JPG' width='50px' height='50px'>";
-    } else if (daejeonwinds < 75) {
-        daejeonwindicon.innerHTML = "<img src='image/northeast.JPG' width='50px' height='50px'>";
-    } else if (daejeonwinds < 120) {
-        daejeonwindicon.innerHTML = "<img src='image/east.JPG' width='50px' height='50px'>";
-    } else if (daejeonwinds < 165) {
-        daejeonwindicon.innerHTML = "<img src='image/southeast.JPG' width='50px' height='50px'>";
-    } else if (daejeonwinds < 210) {
-        daejeonwindicon.innerHTML = "<img src='image/south.JPG' width='50px' height='50px'>";
-    } else if (daejeonwinds < 255) {
-        daejeonwindicon.innerHTML = "<img src='image/southwest.JPG' width='50px' height='50px'>";
-    } else if (daejeonwinds < 300) {
-        daejeonwindicon.innerHTML = "<img src='image/west.JPG' width='50px' height='50px'>";
-    } else if (daejeonwinds < 345) {
-        daejeonwindicon.innerHTML = "<img src='image/northwest.JPG' width='50px' height='50px'>";
-    } else {
-        daejeonwindicon.innerHTML = "<img src='image/north.JPG' width='50px' height='50px'>";
-    }
-}());
-
-(function busann() {
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET",
-        "http://localhost:3000/proxy2?base_date=" + date +
-        "&nx=" + busanx + "&ny=" + busany, false);
-    xhr.send();
-    var arr = JSON.parse(xhr.responseText);
-
-    let busansky = arr.response.body.items.item[18].fcstValue;
-    let busantmp = arr.response.body.items.item[24].fcstValue;
-    let busanrain = arr.response.body.items.item[6].fcstValue;
-    let busanwinds = arr.response.body.items.item[48].fcstValue;
-    let busanwindspeed = arr.response.body.items.item[54].fcstValue;
-
-    busan.innerHTML = busantmp + "℃";
-    busanwind.innerHTML = busanwindspeed + "㎳";
-
-    if (busanrain == 0) {
-        if (busansky == 3) {
-            busanicon.innerHTML = "<img src='image/semicloud.JPG' width='50px' height='50px'>";
-        } else if (busansky == 1) {
-            busanicon.innerHTML = "<img src='image/sun.JPG' width='50px' height='50px'>";
-        } else if (busansky == 4) {
-            busanicon.innerHTML = "<img src='image/cloud.JPG' width='50px' height='50px'>";
-        }
-    } else if (busanrain == 1 || busanrain == 2 || busanrain == 5 || busanrain == 6) {
-        busanicon.innerHTML = "<img src='image/rain.JPG' width='50px' height='50px'>";
-    } else {
-        busanicon.innerHTML = "<img src='image/rain.JPG' width='50px' height='50px'>";
-    }
-
-    if (busanwinds < 30) {
-        busanwindicon.innerHTML = "<img src='image/north.JPG' width='50px' height='50px'>";
-    } else if (busanwinds < 75) {
-        busanwindicon.innerHTML = "<img src='image/northeast.JPG' width='50px' height='50px'>";
-    } else if (busanwinds < 120) {
-        busanwindicon.innerHTML = "<img src='image/east.JPG' width='50px' height='50px'>";
-    } else if (busanwinds < 165) {
-        busanwindicon.innerHTML = "<img src='image/southeast.JPG' width='50px' height='50px'>";
-    } else if (busanwinds < 210) {
-        busanwindicon.innerHTML = "<img src='image/south.JPG' width='50px' height='50px'>";
-    } else if (busanwinds < 255) {
-        busanwindicon.innerHTML = "<img src='image/southwest.JPG' width='50px' height='50px'>";
-    } else if (busanwinds < 300) {
-        busanwindicon.innerHTML = "<img src='image/west.JPG' width='50px' height='50px'>";
-    } else if (busanwinds < 345) {
-        busanwindicon.innerHTML = "<img src='image/northwest.JPG' width='50px' height='50px'>";
-    } else {
-        busanwindicon.innerHTML = "<img src='image/north.JPG' width='50px' height='50px'>";
-    }
-}());       
-
-(function gwangjuu() {
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET",
-        "http://localhost:3000/proxy2?base_date=" + date +
-        "&nx=" + gwangjux + "&ny=" + gwangjuy, false);
-    xhr.send();
-    var arr = JSON.parse(xhr.responseText);
-
-    let gwangjusky = arr.response.body.items.item[18].fcstValue;
-    let gwangjutmp = arr.response.body.items.item[24].fcstValue;
-    let gwangjurain = arr.response.body.items.item[6].fcstValue;
-    let gwangjuwinds = arr.response.body.items.item[48].fcstValue;
-    let gwangjuwindspeed = arr.response.body.items.item[54].fcstValue;
-
-    gwangju.innerHTML = gwangjutmp + "℃";
-    gwangjuwind.innerHTML = gwangjuwindspeed + "㎳";
-
-    if (gwangjurain == 0) {
-        if (gwangjusky == 3) {
-            gwangjuicon.innerHTML = "<img src='image/semicloud.JPG' width='50px' height='50px'>";
-        } else if (gwangjusky == 1) {
-            gwangjuicon.innerHTML = "<img src='image/sun.JPG' width='50px' height='50px'>";
-        } else if (gwangjusky == 4) {
-            gwangjuicon.innerHTML = "<img src='image/cloud.JPG' width='50px' height='50px'>";
-        }
-    } else if (gwangjurain == 1 || gwangjurain == 2 || gwangjurain == 5 || gwangjurain == 6) {
-        gwangjuicon.innerHTML = "<img src='image/rain.JPG' width='50px' height='50px'>";
-    } else {
-        gwangjuicon.innerHTML = "<img src='image/rain.JPG' width='50px' height='50px'>";
-    }
-
-    if (gwangjuwinds < 30) {
-        gwangjuwindicon.innerHTML = "<img src='image/north.JPG' width='50px' height='50px'>";
-    } else if (gwangjuwinds < 75) {
-        gwangjuwindicon.innerHTML = "<img src='image/northeast.JPG' width='50px' height='50px'>";
-    } else if (gwangjuwinds < 120) {
-        gwangjuwindicon.innerHTML = "<img src='image/east.JPG' width='50px' height='50px'>";
-    } else if (gwangjuwinds < 165) {
-        gwangjuwindicon.innerHTML = "<img src='image/southeast.JPG' width='50px' height='50px'>";
-    } else if (gwangjuwinds < 210) {
-        gwangjuwindicon.innerHTML = "<img src='image/south.JPG' width='50px' height='50px'>";
-    } else if (gwangjuwinds < 255) {
-        gwangjuwindicon.innerHTML = "<img src='image/southwest.JPG' width='50px' height='50px'>";
-    } else if (gwangjuwinds < 300) {
-        gwangjuwindicon.innerHTML = "<img src='image/west.JPG' width='50px' height='50px'>";
-    } else if (gwangjuwinds < 345) {
-        gwangjuwindicon.innerHTML = "<img src='image/northwest.JPG' width='50px' height='50px'>";
-    } else {
-       gwangjunwindicon.innerHTML = "<img src='image/north.JPG' width='50px' height='50px'>";
-    }
-}());       
-
-(function gangwonu() {
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET",
-        "http://localhost:3000/proxy2?base_date=" + date +
-        "&nx=" + gangwonx + "&ny=" + gangwony, false);
-    xhr.send();
-    var arr = JSON.parse(xhr.responseText);
-
-    let gangwonsky = arr.response.body.items.item[18].fcstValue;
-    let gangwontmp = arr.response.body.items.item[24].fcstValue;
-    let gangwonrain = arr.response.body.items.item[6].fcstValue;
-    let gangwonwinds = arr.response.body.items.item[48].fcstValue;
-    let gangwonwindspeed = arr.response.body.items.item[54].fcstValue;
-
-    gangwon.innerHTML = gangwontmp + "℃";
-    gangwonwind.innerHTML = gangwonwindspeed + "㎳";
-
-    if (gangwonrain == 0) {
-        if (gangwonsky == 3) {
-            gangwonicon.innerHTML = "<img src='image/semicloud.JPG' width='50px' height='50px'>";
-        } else if (gangwonsky == 1) {
-            gangwonicon.innerHTML = "<img src='image/sun.JPG' width='50px' height='50px'>";
-        } else if (gangwonsky == 4) {
-            gangwonicon.innerHTML = "<img src='image/cloud.JPG' width='50px' height='50px'>";
-        }
-    } else if (gangwonrain == 1 || gangwonrain == 2 || gangwonrain == 5 || gangwonrain == 6) {
-        gangwonicon.innerHTML = "<img src='image/rain.JPG' width='50px' height='50px'>";
-    } else {
-        gangwonicon.innerHTML = "<img src='image/rain.JPG' width='50px' height='50px'>";
-    }
-
-    if (gangwonwinds < 30) {
-        gangwonwindicon.innerHTML = "<img src='image/north.JPG' width='50px' height='50px'>";
-    } else if (gangwonwinds < 75) {
-        gangwonwindicon.innerHTML = "<img src='image/northeast.JPG' width='50px' height='50px'>";
-    } else if (gangwonwinds < 120) {
-        gangwonwindicon.innerHTML = "<img src='image/east.JPG' width='50px' height='50px'>";
-    } else if (gangwonwinds < 165) {
-        gangwonwindicon.innerHTML = "<img src='image/southeast.JPG' width='50px' height='50px'>";
-    } else if (gangwonwinds < 210) {
-        gangwonwindicon.innerHTML = "<img src='image/south.JPG' width='50px' height='50px'>";
-    } else if (gangwonwinds < 255) {
-        gangwonwindicon.innerHTML = "<img src='image/southwest.JPG' width='50px' height='50px'>";
-    } else if (gangwonwinds < 300) {
-        gangwonwindicon.innerHTML = "<img src='image/west.JPG' width='50px' height='50px'>";
-    } else if (gangwonwinds < 345) {
-        gangwonwindicon.innerHTML = "<img src='image/northwest.JPG' width='50px' height='50px'>";
-    } else {
-       gangwonnwindicon.innerHTML = "<img src='image/north.JPG' width='50px' height='50px'>";
-    }
-}());       
-
-(function dokdou() {
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET",
-        "http://localhost:3000/proxy2?base_date=" + date +
-        "&nx=" + dokdox + "&ny=" + dokdoy, false);
-    xhr.send();
-    var arr = JSON.parse(xhr.responseText);
-
-    let dokdosky = arr.response.body.items.item[18].fcstValue;
-    let dokdotmp = arr.response.body.items.item[24].fcstValue;
-    let dokdorain = arr.response.body.items.item[6].fcstValue;
-    let dokdowinds = arr.response.body.items.item[48].fcstValue;
-    let dokdowindspeed = arr.response.body.items.item[54].fcstValue;
-
-    dokdo.innerHTML = dokdotmp + "℃";
-    dokdowind.innerHTML = dokdowindspeed + "㎳";
-
-    if (dokdorain == 0) {
-        if (dokdosky == 3) {
-            dokdoicon.innerHTML = "<img src='image/semicloud.JPG' width='50px' height='50px'>";
-        } else if (dokdosky == 1) {
-            dokdoicon.innerHTML = "<img src='image/sun.JPG' width='50px' height='50px'>";
-        } else if (dokdosky == 4) {
-            dokdoicon.innerHTML = "<img src='image/cloud.JPG' width='50px' height='50px'>";
-        }
-    } else if (dokdorain == 1 || dokdorain == 2 || dokdorain == 5 || dokdorain == 6) {
-        dokdoicon.innerHTML = "<img src='image/rain.JPG' width='50px' height='50px'>";
-    } else {
-        dokdoicon.innerHTML = "<img src='image/rain.JPG' width='50px' height='50px'>";
-    }
-
-    if (dokdowinds < 30) {
-        dokdowindicon.innerHTML = "<img src='image/north.JPG' width='50px' height='50px'>";
-    } else if (dokdowinds < 75) {
-        dokdowindicon.innerHTML = "<img src='image/northeast.JPG' width='50px' height='50px'>";
-    } else if (dokdowinds < 120) {
-        dokdowindicon.innerHTML = "<img src='image/east.JPG' width='50px' height='50px'>";
-    } else if (dokdowinds < 165) {
-        dokdowindicon.innerHTML = "<img src='image/southeast.JPG' width='50px' height='50px'>";
-    } else if (dokdowinds < 210) {
-        dokdowindicon.innerHTML = "<img src='image/south.JPG' width='50px' height='50px'>";
-    } else if (dokdowinds < 255) {
-        dokdowindicon.innerHTML = "<img src='image/southwest.JPG' width='50px' height='50px'>";
-    } else if (dokdowinds < 300) {
-        dokdowindicon.innerHTML = "<img src='image/west.JPG' width='50px' height='50px'>";
-    } else if (dokdowinds < 345) {
-        dokdowindicon.innerHTML = "<img src='image/northwest.JPG' width='50px' height='50px'>";
-    } else {
-       dokdonwindicon.innerHTML = "<img src='image/north.JPG' width='50px' height='50px'>";
-    }
-
-    
-}());       
-
-(function jejuu() {
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET",
-        "http://localhost:3000/proxy2?base_date=" + date +
-        "&nx=" + jejux + "&ny=" + jejuy, false);
-    xhr.send();
-    var arr = JSON.parse(xhr.responseText);
-
-    let jejusky = arr.response.body.items.item[18].fcstValue;
-    let jejutmp = arr.response.body.items.item[24].fcstValue;
-    let jejurain = arr.response.body.items.item[6].fcstValue;
-    let jejuwinds = arr.response.body.items.item[48].fcstValue;
-    let jejuwindspeed = arr.response.body.items.item[54].fcstValue;
-
-    jeju.innerHTML = jejutmp + "℃";
-    jejuwind.innerHTML = jejuwindspeed + "㎳";
-
-    if (jejurain == 0) {
-        if (jejusky == 3) {
-            jejuicon.innerHTML = "<img src='image/semicloud.JPG' width='50px' height='50px'>";
-        } else if (jejusky == 1) {
-            jejuicon.innerHTML = "<img src='image/sun.JPG' width='50px' height='50px'>";
-        } else if (jejusky == 4) {
-            jejuicon.innerHTML = "<img src='image/cloud.JPG' width='50px' height='50px'>";
-        }
-    } else if (jejurain == 1 || jejurain == 2 || jejurain == 5 || jejurain == 6) {
-        jejuicon.innerHTML = "<img src='image/rain.JPG' width='50px' height='50px'>";
-    } else {
-        jejuicon.innerHTML = "<img src='image/rain.JPG' width='50px' height='50px'>";
-    }
-
-    if (jejuwinds < 30) {
-        jejuwindicon.innerHTML = "<img src='image/north.JPG' width='50px' height='50px'>";
-    } else if (jejuwinds < 75) {
-        jejuwindicon.innerHTML = "<img src='image/northeast.JPG' width='50px' height='50px'>";
-    } else if (jejuwinds < 120) {
-        jejuwindicon.innerHTML = "<img src='image/east.JPG' width='50px' height='50px'>";
-    } else if (jejuwinds < 165) {
-        jejuwindicon.innerHTML = "<img src='image/southeast.JPG' width='50px' height='50px'>";
-    } else if (jejuwinds < 210) {
-        jejuwindicon.innerHTML = "<img src='image/south.JPG' width='50px' height='50px'>";
-    } else if (jejuwinds < 255) {
-        jejuwindicon.innerHTML = "<img src='image/southwest.JPG' width='50px' height='50px'>";
-    } else if (jejuwinds < 300) {
-        jejuwindicon.innerHTML = "<img src='image/west.JPG' width='50px' height='50px'>";
-    } else if (jejuwinds < 345) {
-        jejuwindicon.innerHTML = "<img src='image/northwest.JPG' width='50px' height='50px'>";
-    } else {
-       jejunwindicon.innerHTML = "<img src='image/north.JPG' width='50px' height='50px'>";
-    }
-}());       
+weather(55, 38, jeju, jejuwind, jejuicon, jejuwindicon); // 제주
+weather(144, 123, dokdo, dokdowind, dokdoicon, dokdowindicon); // 독도
+weather(87, 141, gangwon, gangwonwind, gangwonicon, gangwonwindicon); // 강원
+weather(59, 74, gwangju, gwangjuwind, gwangjuicon, gwangjuwindicon); // 광주
+weather(100, 76, busan, busanwind, busanicon, busanwindicon); // 부산
+weather(68, 101, dae, daejeonwind, daeicon, daejeonwindicon); // 대전
+weather(62, 126, guii, guiiwind, guiiicon, guiiwindicon); // 구의

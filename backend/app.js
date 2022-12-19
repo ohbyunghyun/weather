@@ -27,7 +27,7 @@ app.get('/proxy2', (req, res) => {
     "&numOfRows=1000" +
     "&dataType=JSON" +
     "&base_date=" + req.query.base_date +
-    "&base_time=" + hours + 
+    "&base_time=1600" + 
     "&nx=" + req.query.nx +
     "&ny=" + req.query.ny;
 
