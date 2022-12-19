@@ -142,7 +142,7 @@ function weather(x, y, area, areawind, areaicon, areawindicon) {
             areaicon.innerHTML = "<img src='image/sun.JPG' width='50px' height='50px'>";
         } else if (sky == 4) {
             areaicon.innerHTML = "<img src='image/cloud.JPG' width='50px' height='50px'>";
-        }
+        };
     } else if (rain == 1 || rain == 2 || rain == 5 || rain == 6) {
         areaicon.innerHTML = "<img src='image/rain.JPG' width='50px' height='50px'>";
     } else {
